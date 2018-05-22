@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <!doctype html>
+        <html lang="en">
+          <head>
+          
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          </head>
+          <body>
+              
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+           
+    <title>this is the jquery validation</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+        body
+{
+	background-color: rgba(red, green, blue, alpha);
+}
+input{
+
+    height: 20PX;
+    border-radius: 8px;
+}
+        #div1 {
+            margin-left: 300px;
+            margin-top: 150px;
+            margin-right: 250px;
+            border-style: solid;
+	        border-radius: 10px;
+	        border-color: cyan;
+	        border-width: 18px;
+        }
+
+        #div3 {
+            float: left;
+            width: 20%;
+
+
+        }
+
+        #div4 {
+            float: left;
+            width: 80%;
+
+        }
+
+        #div6 {
+            float: left;
+            width: 20%;
+
+        }
+
+        #div7 {
+            float: left;
+            width: 80%;
+
+        }
+
+        #div9 {
+            float: left;
+            width: 20%;
+
+        }
+
+        #div10 {
+            float: left;
+            width: 80%;
+
+        }
+
+        #div12 {
+            float: left;
+            width: 20%;
+
+        }
+
+        #div13 {
+            float: left;
+            width: 80%;
+
+        }
+
+        #div15 {
+            float: left;
+            width: 20%;
+
+        }
+
+        #div16 {
+            float: left;
+            width: 80%;
+
+        }
+
+        #div18 {
+            float: left;
+            width: 20%;
+
+        }
+
+        #div19 {
+            float: left;
+            width: 80%;
+
+        }
+
+        #div21 {
+            float: left;
+            width: 20%;
+
+        }
+
+        #div22 {
+            float: left;
+            width: 80%;
+
+        }
+        .btn-success
+{
+	margin-top: 15px;
+	width: 200px;
+	border-radius: 5px;
+	height: 40px;
+	margin-left: 40px;
+	 
+}
+    </style>
+    <style>
+        span {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+    
+   
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var g = "";
+            var h = "";
+            $("#chkChess").click(function(){
+                $("#vHobbies").empty();
+                h = $(this).val();
+            })
+            
+            $("#chkCricket").click(function(){
+                $("#vHobbies").empty();
+                h = $(this).val();
+            })
+            
+            $("#chkCarroms").click(function(){
+                $("#vHobbies").empty();
+                h = $(this).val();
+            })
+
+            $("#rbMale").click(function () {
+                g = $(this).val();
+                $("#vGender").empty();
+            })
+
+            $("#rbFemale").click(function () {
+                g = $(this).val();
+                $("#vGender").empty();
+            })
+            $("#ddlQualification").change(function () {
+                $("#vQualification").empty();
+            })
+
+            $("#txtUserId").keypress(function () {
+                $("#vUserId").empty();
+            })
+            $("#txtPwd").keypress(function () {
+                $("#vPwd").empty()
+            })
+
+            $("#txtCpwd").keypress(function () {
+                $("#vCpwd").empty()
+            })
+            $("#txtCpwd").focusout(function () {
+
+                if ($("#txtPwd").val() != $("#txtCpwd").val()) {
+                    $("#vMcpwd").empty().append("*Password Mismatch")
+                }
+                else {
+                    $("#vMcpwd").empty();
+                }
+
+            })
+            $("#btnSubmit").click(function () {
+                
+                
+                if ($("#txtUserId").val() == "") {
+                    $("#vUserId").empty().append('*Enter User Id');
+                }
+                else {
+                    $("#vUserId").empty();
+                }
+
+            var r = new RegExp('^[a-z]{4}[0-9]{2}$').test($("#txtUserId").val());
+            if(r==false)
+            {
+                $("#vRuserid").empty().append('*User Pattren error');
+            }
+            else
+            {
+                $("#vRuserid").empty();
+            }
+                if ($("#txtPwd").val() == "") {
+                    $("#vPwd").empty().append('*Enter Password');
+                }
+                else {
+                    $("#vPwd").empty();
+                }
+                if ($("#txtCpwd").val() == "") {
+                    $("#vCpwd").empty().append('*Enter Confrim Pwd');
+                }
+                else {
+                    $("#vCpwd").empty();
+                }
+
+                if ($("#txtPwd").val() != $("#txtCpwd").val()) {
+                    $("#vMcpwd").empty().append("*Password Missmatch")
+                }
+                else {
+                    $("#vMcpwd").empty();
+                }
+                if (g == "") {
+                   /*  alert('gender' + g) */
+                    
+                    $("#vGender").empty().append("Select gender");
+                }
+                if ($("#ddlQualification").val() == "*Selct u r Qual") {
+                    $("#vQualification").empty().append("*Select Ur Qual")
+                }
+                else {
+                    $("#vQualification").empty()
+                }
+                if(h=="")
+                {
+                    $("#vHobbies").empty();
+                    $("#vHobbies").empty().append("*Select Hobbies")
+                }
+                else
+                {
+                    $("#vHobbies").empty();
+                }
+            })
+        })
+
+    </script>
+
+</head>
+
+<body b>
+
+
+    <div id="div1" style="background-color: rgb(202, 148, 95)">
+        <h1>REGISTERATION FORM</h1>
+
+        <div id="div2">
+            <div id="div3"><b>USERID<b></div>
+            <div id="div4">
+            <input type="text" id="txtUserId" />
+            <span id="vUserId"></span>
+            <span id="vRuserid"></span>
+        
+                </br>
+                </br>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="div5">
+            <div id="div6">PASSWORD</div>
+            <div id="div7">
+                    <input type="password" id="txtPwd" />
+                    <span id="vPwd"></span>
+                
+
+
+                </br>
+                </br>
+            </div>
+
+        </div>
+
+
+        <div id="div8">
+            <div id="div9">CONFIRM_PASS</div>
+            <div id="div10">
+                    <input type="p" id="txtCpwd" />
+                    <span id="vCpwd"></span>
+                    <span id="vMcpwd"></span>
+                
+
+                
+
+                </br>
+                </br>
+            </div>
+            <div id="div11">
+                <div id="div12">MOBILE</div>
+                <div id="div13">
+                        <input type="number" id="txtMobile" />
+                        <span id="vMobile"></span>
+                    
+
+
+                    </br>
+                    </br>
+                </div>
+                <div id="div14">
+                    <div id="div15">GENDER</div>
+                    <div id="div16">
+                            <input type="radio" value="Male" name="gender" id="rbMale" /> Male
+                            <input type="radio" value="Female" name="gender" id="rbFemale" /> FeMale
+                            <span id="vGender"></span>
+                        
+
+                        </br>
+                        </br>
+                    </div>
+                    <div id="div17">
+                        <div id="div18">QUALIFICATION</div>
+                        <div id="div19">
+                            <select id="ddlQualification">
+                                    <option>Select your quali</option>
+                                    <option>SSC</option>
+                                    <option>Intermediate</option>
+                                    <option>Graduation</option>
+                                    <option>PostGraduation</option>
+                            
+                               
+                            </select>
+                            <span id="vQualification"></span>
+
+                            </br>
+                            </br>
+                        </div>
+                        <div id="div20">
+                            <div id="div21">HOBBIES</div>
+                            <div id="div22">
+                                    <input type="checkbox" id="chkChess" value="Chess" /> Chess
+                                    <input type="checkbox" id="chkCricket" value="Cricket" /> Cricket
+                                    <input type="checkbox" id="chkCarroms" value="Carroms" /> Carroms
+                                    <span id="vHobbies"></span>
+                                
+
+                                </br>
+                                </br>
+                            </div>
+
+                            <button id="btnSubmit" class="btn-success">Submit</button>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+</html>
