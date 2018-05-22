@@ -1,0 +1,49 @@
+body
+{
+	background-color: black;
+}
+fieldset
+{
+	width: 300px;
+	height: 755px;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: cyan;
+	border-width: 4px;
+	margin-top: 100px;
+	padding: 30px;
+	box-shadow: 4px 5px 7px rgba(13,222,141,4);
+
+}
+input{
+	height: 40px;
+	width: 400px;
+	border-radius: 6px;
+	font-size: 19px;
+	margin-top: 9px;
+	margin-left: 40px;
+}
+label{
+	font-size: 24px;
+	margin-left: 40px;
+	margin-top: 9px;
+}
+.btn-success
+{
+	margin-top: 15px;
+	width: 200px;
+	border-radius: 5px;
+	height: 40px;
+	margin-left: 40px;
+	 
+
+
+}
+legend{
+	font-size: 30px;
+	color: blue;
+	background-color: silver;
+	width: 300px;
+	border-radius: 20px;
+	padding: 5px;
+}
