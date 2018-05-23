@@ -1,0 +1,235 @@
+<html>
+
+
+<head>
+    <title>Registration</title>
+    
+    <link rel="shortcut icon"  type="image/png" href="fav.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+   $(document).ready(function () {
+    var g = "";
+    var h = "";
+    //name
+    $('#in').keypress(function () { // keypress for keyboard or keypress operation
+        $('#sn').empty(); // when press any key on keyboard it will reomve the span message..
+    })
+    //password
+    $('#ip').keypress(function () {
+        $('#sp').empty();
+    })
+    //conform password
+    $('#icp').keypress(function () {
+        $('#scp').empty();
+    })
+    //password verification
+    $('#icp').focusout(function () {
+        if ($('#ip').val() != $('#icp').val()) {
+            $('#scp').empty().append('miss-matching password...')
+        }
+        else {
+            $('#scp').empty();
+        }
+    })
+    //gender
+    $('#imale').click(function () { // click is for radio & checkboxes
+        g = $(this).val();
+        $('#sg').empty();
+    })
+    $('#ifemale').click(function () {
+        g = $(this).val();
+        $('#sg').empty();
+    })
+    //qualificationsS
+    $('#iq').change(function () {
+        $('#sq').empty();
+    })
+    //hobbies
+    $('#chkChess').click(function () {
+        $('#sh').empty();
+        h = $('this').val();
+    });
+    $('#chkCarroms').click(function () {
+        $('#sh').empty();
+        h = $('this').val();
+    });
+    $('#chkCricket').click(function () {
+        $('#sh').empty();
+        h = $('this').val();
+    });
+    //mobile
+    $('#im').keypress(function () {
+        $('#sm').empty();
+    })
+    //================button related operations=================
+    $('#btn').click(function () {
+        
+        //name
+        if ($('#in').val() == "") {
+            $('#sn').append('enter ther user name...');
+        } else {
+            $('#sn').empty(); // this will remove the previous validation message..
+        }
+        //password
+        if ($('#ip').val() == "") {
+            $('#sp').append('enter the password...');
+        } else {
+            $('#sp').empty();
+        }
+        //conform password
+        if ($('#icp').val() == "") {
+            $('#scp').append('enter the confrm password...');
+        } else {
+            $('#scp').empty();
+        }
+        //miss-match verification
+        if ($('#ip').val() != $('#icp').val()) {
+            $('#scp').empty().append('miss-match password');
+        } else {
+            $('#scp').empty();
+        }
+        //mobile
+        if ($('#im').val() == "") {
+            $('#sm').append('enter the mobile number...');
+        } else {
+            $('#sm').empty();
+        }
+        //gender
+        if (g == "") {
+            $('#sg').append('select gender');
+        }
+        //qualifications
+        if ($('#iq').val() == 'select it') {
+            $('#sq').append('select qualification');
+        }
+        else {
+            $('#sq').empty();
+        }
+        //hobbies
+        if (h == "") {
+            $('#sh').append('select hobbies')
+        }
+        else {
+            $('#sh').empty();
+        }
+    });
+});
+
+
+
+
+
+
+</script>
+
+    <style>
+        .col1 {
+            width: 25%;
+            float: left;
+        }
+
+        .col2 {
+            width: 60%;
+            float: left;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <div style="width: 100%">
+            <div class="col1">
+                <label for="in">Name:</label>
+            </div>
+            <div class="col2">
+                <input type="text" name="name" id="in">
+                <span id="sn"></span>
+            </div>
+        </div>
+
+
+        <div style="width: 100%">
+            <div class="col1">
+                <label for="">Password:</label>
+            </div>
+            <div class="col2">
+                <input type="password" name="name" id="ip">
+                <span id="sp"></span>
+            </div>
+
+        </div>
+
+        <div style="width: 100%">
+            <div class="col1">
+                <label for="">Conform password:</label>
+            </div>
+            <div class="col2">
+                <input type="password" name="name" id="icp">
+                <span id="scp"></span>
+                <span id="vscp"></span>
+            </div>
+        </div>
+
+        <div style="width: 100%">
+            <div class="col1">
+                <label for="">Mobile</label>
+            </div>
+            <div class="col2">
+                <input type="number" name="name" id="im">
+                <span id="sm"></span>
+            </div>
+        </div>
+
+        <div style="width: 100%">
+            <div class="col1">
+                <label for="">Qulafications:</label>
+            </div>
+            <div class="col2">
+                <select name="" id="iq">
+                    <option> select it</option>
+                    <option>ssc</option>
+                    <option>inter</option>
+                    <option>btech</option>
+                    <option>mtech</option>
+                    <option>phd</option>
+                </select>
+                <span id="sq"></span>
+            </div>
+        </div>
+
+        <div style="width: 100%">
+            <div class="col1">
+                <label for="">Gender:</label>
+            </div>
+            <div class="col2">
+                <input type="radio" name="Gender" id="imale" value="male">male
+                <input type="radio" name="Gender" id="ifemale" value="female">female
+                <span id="sg"></span>
+            </div>
+
+        </div>
+        <div style="width: 100%">
+            <div class="col1">
+                <label for="">Hobbies:</label>
+            </div>
+            <div class="col2">
+                <input type="checkbox" id="chkChess" value="Chess" /> Chess
+                <input type="checkbox" id="chkCricket" value="Cricket" /> Cricket
+                <input type="checkbox" id="chkCarroms" value="Carroms" /> Carroms
+                <span id="sh"></span>
+            </div>
+        </div>
+        <div class="col1">
+            <input type="submit" value="submit" id="btn">
+        </div>
+    </div>
+</body>
+
+</html>
