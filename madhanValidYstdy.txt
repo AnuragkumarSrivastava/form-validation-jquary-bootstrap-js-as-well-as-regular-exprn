@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <title>Registration</title>
+
+ <link rel="shortcut icon" type="image/png" href="fav.png">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+ <script src="registration.js"></script>
+ <script src="registrationData.js"></script>
+
+ <style>
+ span {
+ color: red;
+ }
+ body{
+ color: white;
+ background: url('bg.jpg') center fixed;
+ background-size: cover;
+ }
+ </style>
+
+</head>
+
+<body>
+ <!-- nav bar -->
+ <nav class="navbar navbar-inverse">
+
+ <div class="container-fluid" style="background-color:rgba(58, 56, 56, 0.5);">
+
+ <div class="navbar-header">
+
+ <a class="navbar-brand" href="#">Clash of clan</a>
+ </div>
+
+ <ul class="nav navbar-nav">
+ <li class="active">
+ <a href="registration.html">Home</a>
+ </li>
+ <li>
+ <a href="#">about us</a>
+ </li>
+ <li>
+ <a href="#">Products</a>
+ </li>
+ <li>
+ <a href="#">Services</a>
+ </li>
+ </ul>
+
+ <div class="navbar-form navbar-left">
+
+ <div class="form-group">
+ <input type="text" class="form-control" placeholder="Search">
+ </div>
+ <button type="submit" class="btn btn-default">Submit</button>
+ </div>
+
+ <ul class="nav navbar-nav navbar-right">
+ <li>
+ <a href="#">
+ <span class="glyphicon glyphicon-user"> SignUp</span>
+ </a>
+ </li>
+ <li>
+ <a href="#">
+ <span class="glyphicon glyphicon-log-in"> Login</span>
+ </a>
+ </li>
+ </ul>
+ </div>
+ </nav>
+
+ <!-- form -->
+ <div class="container" >
+ <div class="col-md-5 col-md-offset-3" style="background-color: rgba(78, 81, 82, 0.5)">
+
+ <div class="form-group ">
+
+ <label class="container-label" for="in">Name:</label>
+ <span id="sn"></span>
+ 
+ <div class="input-group">
+
+ <span class="input-group-addon">
+ <i class="glyphicon glyphicon-user"></i>
+ </span>
+
+ <input type="text" class="form-control" name="name" id="in">
+
+ </div>
+
+ </div>
+
+ <div class="form-group">
+
+ <label>Password:</label>
+ <span id="sp"></span>
+ <div class="input-group">
+ <span class="input-group-addon">
+ <i class="glyphicon glyphicon-eye-close"></i>
+ </span>
+ <input type="password" class="form-control" name="name" id="ip">
+ </div>
+
+
+ </div>
+
+ <div class="form-group">
+ <label for="">Conform password:</label>
+ <span id="scp"></span>
+ <span id="vscp"></span>
+ <input type="password" name="name" class="form-control" id="icp">
+ </div>
+
+ <div class="form-group">
+ <label for="">Mobile</label>
+ <span id="sm"></span>
+ <input type="number" name="name" id="im" class="form-control">
+ </div>
+
+ <div class="form-group">
+ <label for="">Qulafications:</label>
+ <span id="sq"></span>
+ <select name="" id="iq" class="form-control">
+ <option> select it</option>
+ <option>ssc</option>
+ <option>inter</option>
+ <option>btech</option>
+ <option>mtech</option>
+ <option>phd</option>
+ </select>
+ </div>
+
+ <div class="form-group">
+ <label for="">gender:</label>
+ <span id="sg"></span>
+ <br>
+ <input type="radio" class="radio-inline" name="Gender" id="imale" value="male">male
+ <input type="radio" name="Gender" class="radio-inline" id="ifemale" value="female">female
+
+
+ </div>
+
+ <div class="form-group">
+ <label for="" class="checkbox">Hobbies:</label>
+ <span id="sh"></span>
+ <input type="checkbox" id="chkChess" value="Chess" /> Chess
+ <input type="checkbox" id="chkCricket" value="Cricket" /> Cricket
+ <input type="checkbox" id="chkCarroms" value="Carroms" /> Carroms
+
+ </div>
+
+ <div class="form-group">
+ <!-- <div class="col-sm-offset-2 col-sm-10"></div> -->
+ <input type="submit" class="btn btn-danger" value="submit" id="btn1" onclick="btn()">
+
+ </div>
+ <hr>
+ <h3>your data:</h3>
+ <div id="idata"></div>
+ </div>
+ </div>
+</body>
+
+</html>
+
+
+registration.js
+
+
+
+
+$(document).ready(function () {
+ var g = "";
+ var h = "";
+ //name
+ $('#in').keypress(function () { // keypress for keyboard or keypress operation
+ $('#sn').empty(); // when press any key on keyboard it will reomve the span message..
+ })
+ //password
+ $('#ip').keypress(function () {
+ $('#sp').empty();
+ })
+ //conform password
+ $('#icp').keypress(function () {
+ $('#scp').empty();
+ })
+ //password verification
+ $('#icp').focusout(function () {
+ if ($('#ip').val() != $('#icp').val()) {
+ $('#scp').empty().append('miss-matching password...')
+ }
+ else {
+ $('#scp').empty();
+ }
+ })
+ //gender
+ $('#imale').click(function () { // click is for radio & checkboxes
+ g = $(this).val();
+ $('#sg').empty();
+ })
+ $('#ifemale').click(function () {
+ g = $(this).val();
+ $('#sg').empty();
+ })
+ //qualificationsS
+ $('#iq').change(function () {
+ $('#sq').empty();
+ })
+ //hobbies
+ $('#chkChess').click(function () {
+ $('#sh').empty();
+ h = $('this').val();
+ });
+ $('#chkCarroms').click(function () {
+ $('#sh').empty();
+ h = $('this').val();
+ });
+ $('#chkCricket').click(function () {
+ $('#sh').empty();
+ h = $('this').val();
+ });
+ //mobile
+ $('#im').keypress(function () {
+ $('#sm').empty();
+ })
+
+ //================button related operations=================
+
+ $('#btn1').click(function () {
+ 
+ //name
+ if ($('#in').val() == "") {
+ $('#sn').empty().append('enter ther user name...');
+ } else {
+ $('#sn').empty(); // this will remove the previous validation message..
+ }
+ //password
+ if ($('#ip').val() == "") {
+ $('#sp').empty().append('enter the password...');
+ } else {
+ $('#sp').empty();
+ }
+ //conform password
+ if ($('#icp').val() == "") {
+ $('#scp').empty().append('enter the confrm password...');
+ } else {
+ $('#scp').empty();
+ }
+ //miss-match verification
+ if ($('#ip').val() != $('#icp').val()) {
+ $('#scp').empty().append('miss-match password');
+ } else {
+ $('#scp').empty();
+ }
+ //mobile
+ if ($('#im').val() == "") {
+ $('#sm').empty().append('enter the mobile number...');
+ } else {
+ $('#sm').empty();
+ }
+ //gender
+ if (g == "") {
+ $('#sg').empty().append('select gender');
+ }
+ //qualifications
+ if ($('#iq').val() == 'select it') {
+ $('#sq').empty().append('select qualification');
+ }
+ else {
+ $('#sq').empty();
+ }
+ //hobbies
+ if (h == "") {
+ $('#sh').empty().append('select hobbies')
+ }
+ else {
+ $('#sh').empty();
+ }
+ });
+});
+
+
+
+
+
+registrationData.js
+
+
+
+function btn() {
+ //name
+ var name = document.getElementById('in').value;
+ // mobile
+ var mobile = document.getElementById('im').value;
+ // radio button - gender
+ var gender = "";
+ if (document.getElementById('imale').checked == true) {
+ gender = document.getElementById('imale').value;
+ } else if (document.getElementById('ifemale').checked == true) {
+ gender = document.getElementById('ifemale').value;
+ }
+ // checkbox - hobbies
+ var hobbies = "";
+ if (document.getElementById('chkChess').checked == true) {
+ hobbies = hobbies +" " + document.getElementById('chkChess').value;
+ } if (document.getElementById('chkCricket').checked == true) {
+ hobbies = hobbies +" " + document.getElementById('chkCricket').value;
+ } if (document.getElementById('chkCarroms').checked == true) {
+ hobbies =hobbies +" " + document.getElementById('chkCarroms').value;
+ }
+ // select
+ var qualifications=document.getElementById('iq').value;
+
+
+ document.getElementById('idata').innerHTML = "<b>Name : </b>" + name + "<br> <b>Mobile number : </b>" + mobile + "<br><b>Gender : </b>" + gender + "<br> <b>Hobbies : </b>" + hobbies+ "<br> <b>Qualifications : </b>" +qualifications;

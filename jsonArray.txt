@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Angular js filters</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script>
+var x=angular.module("m1",[]);
+x.controller("c1",function($scope){
+$scope.em=[{id:101,name:'ASHOK',sal:40000,doj:'2015-4-12'},
+{id:102,name:'ANIL',sal:60000,doj:'2016-8-17'},
+{id:103,name:'ANURAG',sal:80000,doj:'2011-5-18'},
+{id:104,name:'ROHAN',sal:70000,doj:'2014-2-19'},
+{id:104,name:'MOHIT',sal:80000,doj:'2014-2-19'}
+];
+});
+</script>
+</head>
+<body ng-app="m1" ng-controller="c1">
+<div>
+<hr>
+<h1>{{"unic solutions" | limitTo:8}}</h1>
+<hr>
+<table cellpadding="4" cellspacing="3" border="1" align="center">
+<tr>
+<th>S.NO</th>
+<th>Emp ID</th>
+<th>Emp Name</th>
+<th>Emp Salary</th>
+<th>Emp DOJ</th>
+</tr>
+<tr ng-repeat="e in em">
+<td>{{$index+1}}</td>
+<td>{{e.id}}</td>
+<td>{{e.name |uppercase}}</td>
+<td>{{e.sal |currency}}</td>
+<td>{{e.doj |date}}</td>
+</tr>
+</table>
+</div>
+<hr>
+<div>{{em | json}}</div>
+<hr>
+<div>
+<ol>
+<li ng-repeat="i in em |orderBy:'-name'">{{i.name}}</li>
+</ol>
+</div>
+<hr>
+<div>
+Name:
+<input type="text" ng-model="kname">
+<ul ng-repeat="i in em |filter:kname">
+<li>{{i.name}}</li>
+</ul>
+</div>
+<!-- <div>
+Name:
+<input type="checkbox" ng-model="kid">
+<ul ng-repeat="i in em |filter:kid">
+<li>{{i.id+","+i.name}}</li>
+</ul>
+</div> -->
+<hr>
+</body>
+</html>

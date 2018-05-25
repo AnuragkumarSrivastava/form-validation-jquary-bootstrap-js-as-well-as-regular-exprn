@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <!-- to print the string -->
+
+    <div id="fDiv"></div>
+    <script>
+
+        var friendList = ["sankar", "milon", "najim", "rimpa", "akash", "ratan"];
+        document.getElementById("fDiv").innerHTML = friendList;
+        alert(friendList);
+
+    </script><hr>
+    <br>
+
+
+
+
+
+<!-- to print the string with join method -->
+
+
+
+
+
+    <div id="fDiv1"></div>
+    <script>
+
+        var friendList = ["sankar", "milon", "najim", "rimpa", "akash", "ratan"];
+        document.getElementById("fDiv1").innerHTML = friendList.join("||");
+        alert(friendList);
+
+    </script><hr><br>
+
+
+
+<!-- to print the string with splice method -->
+
+
+
+
+<button onclick="disFun()">click to splice</button>
+    <div id="fDiv2"></div>
+    
+    <script>
+        var friendList = ["sankar", "milon", "najim", "rimpa", "akash", "ratan"];
+        document.getElementById("fDiv2").innerHTML = friendList;
+
+        function disFun() {
+
+           friendList.splice(1, 0, "rahul");
+            document.getElementById("fDiv2").innerHTML =friendList ;
+
+        }
+    </script><hr><br>
+
+
+
+<!-- to print the string using slice method -->
+
+
+
+
+<button onclick="disFun1()">click to slice</button>
+    <div id="fDiv3"></div>
+    
+    <script>
+        var friendList = ["sankar", "milon", "najim", "rimpa", "akash", "ratan"];
+        document.getElementById("fDiv3").innerHTML = friendList;
+
+        function disFun1() {
+
+          var d= friendList.slice(1,4);
+            document.getElementById("fDiv3").innerHTML =d ;
+
+        }
+    </script><hr><br>
+
+
+<!-- to print the string using sort method-->
+
+
+
+
+
+<button onclick="sortFun()">click to sort alphabat</button>
+
+    <div id="fDiv4"></div>
+    
+    <script>
+        var friendList = ["sankar", "milon", "najim", "rimpa", "akash", "ratan"];
+        document.getElementById("fDiv4").innerHTML = friendList;
+
+        function sortFun() {
+
+         friendList.sort();
+              document.getElementById("fDiv4").innerHTML =friendList.join("/");
+
+        }
+    </script><hr><br>
+
+
+
+<!-- to print the string using reverse method -->
+
+
+<button onclick="reverseFun()">click to reverse</button>
+
+    <div id="fDiv5"></div>
+    
+    <script>
+        var friendList = ["sankar", "milon", "najim", "rimpa", "akash", "ratan"];
+        document.getElementById("fDiv5").innerHTML = friendList;
+        
+        function reverseFun() {
+            
+         friendList.sort().reverse();
+              document.getElementById("fDiv5").innerHTML =friendList.join("/");
+
+        }
+    </script><hr><br>
+
+
+
+<!-- to print a particular string as splite an reverse-->
+
+
+
+<button onclick="revStrFun()">click to reverse String</button>
+<div id="fDiv6"></div>
+<script>
+var name="Anifur";
+var an=name.split("");
+document.getElementById("fDiv6").innerHTML=an.toString();
+function revStrFun(){
+
+an.reverse();
+document.getElementById("fDiv6").innerHTML=an.toString();
+}
+
+</script><hr><br>
+
+
+
+<!-- to print the sort digit using sort method-->
+
+
+<button onclick="sortDigFun()">click to sort Digit</button>
+<div id="fDiv7"></div>
+<script>
+
+   var arrDig=[15,12,1,96,5,100,58,53,9,1,56,48,25,];
+   document.getElementById("fDiv7").innerHTML=arrDig.toString();
+
+   function sortDigFun()
+   {
+var sortDi=arrDig.sort(function(a,b){return a-b});
+document.getElementById("fDiv7").innerHTML=sortDi.toString();
+   }
+
+</script><hr><br>
+
+<!-- push an element in to an array -->
+
+<button onclick="pushFun()">click to push the element</button>
+<div id="fDiv8"></div>
+<script>
+var friendList="";
+    var friendList = ["sankar", "milon", "najim", "rimpa", "akash", "ratan"];
+    document.getElementById("fDiv8").innerHTML = friendList;
+
+    function pushFun(){
+        friendList.push("arman");
+        document.getElementById("fDiv8").innerHTML=friendList;
+  
+
+    }
+   
+
+</script><hr><br>
+
+
+<!-- pop an element from an array -->
+
+
+
+
+<button onclick="popFun()">click to pop an element</button>
+<div id="fDiv9"></div>
+<script>
+var friendList="";
+    var friendList = ["sankar", "milon", "najim", "rimpa", "akash", "ratan"];
+    document.getElementById("fDiv9").innerHTML = friendList;
+
+    function popFun(){
+        friendList.pop();
+        document.getElementById("fDiv9").innerHTML=friendList;
+  
+
+    }
+</script><hr><br>
+   
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+    
+
+</body>
+
+</html>

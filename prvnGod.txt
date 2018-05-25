@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Email validation</title>
+       
+    <script>
+        function emailval()
+        {  
+             var emailcheck=false ;
+           
+          var email=document.getElementById("email").value;
+          //email validation
+          var reg=/^[a-zA-Z]{3}[0-9]{3}$/
+          var emailreg=new RegExp(reg).test(email)
+
+          if(emailreg==false)
+          {
+            /*   alert(email)
+            alert('email false') */
+                  document.getElementById("emailval").innerHTML="Enter email correctly(2 letters & 3 numbers";   
+                   emailcheck=false      
+          }
+          else
+          {
+           /*  alert('email true') */
+            document.getElementById("emailval").innerHTML="";
+             emailcheck=true; 
+             
+          }
+          
+
+
+          var pwd=document.getElementById("pwd").value ; 
+        //password validation
+           var pwdreg=/^[a-zA-z]{5}[0-9]{3}$/
+           var pwdreglr=new RegExp(pwdreg).test(pwd);
+
+           if(pwdreglr==false)
+           {
+           /*  alert('pwd false') */
+               document.getElementById("pwdval").innerHTML="enter password (letters 5 & numbers 3";
+           }
+          else
+           {
+               /* alert('pwd true') */
+            document.getElementById("pwdval").innerHTML="";
+           
+           }
+
+          result=email+"<br>"+pwd;
+
+          if(emailcheck==true)
+          {
+              /* alert('emial true..'); */
+          document.getElementById("outputdiv").innerHTML="<b>"+result+"</b>";
+          }
+        
+       /*  document.getElementById("outputdiv").innerHTML="<b>"+result+"</b>"; */
+        }
+    
+    </script>
+
+
+
+</head>
+<body>
+    <!--Navbar designing-->
+    <nav class="navbar navbar-inverse ">
+        <div class="container-fluid">
+             <div class="navbar-header">
+                <b class="navbar-brand">Unicsol</b>
+             </div>
+             <ul class="nav navbar-nav">
+                 <li><a href="">hOME</a></li>
+                 <li><a href="">ABOUT US</a></li>
+                 <li><a href="">Contact</a></li>
+                </ul>
+                <ul>
+                    <div class="navbar navbar-nav navbar-right">
+                            <li><a href=""><span class="glyphicon glyphicon-log-in">Login</span></a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-user">Login</span></a></li>
+                    </div>
+                  </ul>
+                  <form class="navbar-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control">
+                        <button class="glyphicon glyphicon-search">Search</button>
+
+                    </div>
+                  </form>
+        </div>
+    </nav>
+    <div style="background: linear-gradient(to right,pink,yellow)" class="well well-sm">
+        <div class="container-fluid">
+            <div class="form-group col-sm-5 col-sm-offset-4 ">
+                <label for="email">Email:</label>
+                <input class="form-control" type="text" id="email">
+                <span id="emailval" ></span>
+            </div>
+            <div class="form-group col-sm-5 col-sm-offset-4">
+                    <label for="pwd">Password:</label>
+                    <input class="form-control" type="text" id="pwd">
+                    <span id="pwdval"></span><br>
+                    <div align="center">
+                    <button class="btn" onclick="emailval()">Login</button>
+                    </div>
+            </div>
+           
+              
+           
+        </div>
+    </div>
+ <div id="outputdiv" style="background: linear-gradient(to right,yellow,pink)" align="center">
+
+ </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Document</title>
+
+<script>
+    $(document).ready(function()
+{ 
+   
+    //global values retrieve
+    var eid=$("#eid").val();
+    
+    var ename=$("#ename").val();
+    var password=$("#pwd").val();
+    var cpassword=$("#cpwd").val();
+    var gen="";
+      //eid keypress
+      $("#eid").keypress(function()
+      {
+          eidd=$(this).val();
+        $("#eidval").empty()
+
+      })
+      //reid keypress
+     /*  $("#eid").keypress(function()
+      {
+        $("#reidval").empty()
+      }) */
+      //ename keypress
+      $("#ename").keypress(function()
+      {
+        $("#enameval").empty()
+      })
+      //password keypress
+      $("#pwd").keypress(function()
+      {
+        $("#pwdval").empty()
+      })
+      //cnfrm password keypress
+      $("#cpwd").keypress(function()
+      {
+        $("#cpwdval").empty()
+      })
+
+
+      //gender operation
+      $("#gen_male").click(function()
+      {
+          gen=$(this).val();
+          $("#genval").empty();
+      })
+      $("#gen_female").click(function()
+      {
+          gen=$(this).val();
+          $("#genval").empty();
+      })
+      //gender keypress operation
+
+    
+    //btn operations
+    $("#btnclick").click(function()
+    {
+        //eid chek
+         if($("#eid").val()=="")
+         {   
+             $("#eidval").empty().append("enter eid");
+         }
+        else
+        {
+            $("#eidval").empty();
+         }
+         
+         var reid=new RegExp('/^[a-zA-Z]{2}[0-9]{3}').test(eid)
+          if($("#reid")==false)
+          {
+            $("#reidval").empty().append("eid pattern error")
+          }
+          if($("#reid")==true)
+          {
+            $("#reidval").empty() 
+          }
+        //ename check
+        if($("#ename").val()=="")
+        {
+            $("#enameval").empty().append("enter ename ")
+        }
+        else{
+            $("#enameval").empty()
+        }
+        //password check
+        if($("#pwd").val()=="")
+        {
+            $("#pwdval").empty().append("enter password")
+        }
+        else{
+            $("#pwdval").empty()
+        }
+        //cnfrm pwd check
+        if($("#cpwd").val()=="")
+        {
+            $("#cpwdval").empty().append("enter conform password")
+        }
+        else{
+            $("#cpwdval").empty()
+        }
+        //gender
+        if(gen=="")
+        {
+            $("#genval").empty().append("select gender");
+        }
+        else
+        {
+            $("#genval").empty()
+        }
+      
+        result=$("#eid").val()+"<br>"+$("#ename").val()+"<br>"+$("#pwd").val()+"<br>"+$("#cpwd").val();
+        $("#printdata").empty().append(result);
+    }) 
+  
+});
+
+</script>
+
+
+
+
+
+
+</head>
+
+<body>
+    <div>
+        <div>
+            <div>
+                <b></b>
+            </div>
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <div >
+        <div class="form-group col-sm-4 col-sm-offset-2" style="background: linear-gradient(to right,pink,yellow)">
+            <div>
+                <label for="eid">Eid:</label>
+                <span id="eidval" style="color:red"></span>
+                <span id="reidval" style="color:red"></span>
+                <input class="form-control" type="text" id="eid">
+                
+            </div>
+            <div>
+                <label for="ename">Ename:</label>
+                <span id="enameval" style="color:red"></span>
+                <input class="form-control" type="text" id="ename">
+            </div>
+            <div>
+                <label for="pwd">password:</label>
+                <span id="pwdval" style="color:red"></span>
+                <input class="form-control" type="text" id="pwd">
+            </div>
+            <div>
+                    <label for="cpwd">Cnfrm password:</label>
+                    <span id="cpwdval" style="color:red"></span>
+                    <input class="form-control" type="text" id="cpwd">
+             </div>
+             
+             <div>
+                 <lable for="gen">Gender:</lable>
+                 <span id="genval" style="color:red"></span>
+                 <input class="radio-inline" type="radio" id="gen_male" name="gender" value="male">male
+                 <input class="radio-inline" type="radio" id="gen_female" name="gender" value="female">female
+                 <div align="center">
+                        <button type="submit" id="btnclick" class="btn btn-info btn-lg">Click</button>
+                    </div>
+             </div>
+        </div>
+        <div id="printdata"></div>
+    </div>
+
+    <!--Print total dat-->
+    
+</body>
+
+</html>

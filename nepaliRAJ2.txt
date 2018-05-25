@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Page</title>
+	<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="validation.js"></script>
+  <style type="text/css">
+  .container
+  {
+  	padding: 15px;
+  }
+  	.btn-lg{
+  		width: 170px;
+  		height: 100%;
+  	}
+  	table{
+  		width: 600px;
+  		margin-left: 250px;
+  		background-color: cyan;
+  		margin-top: 50px;
+  		box-shadow: 6px 7px 4px rgba(113,232,342,2);
+
+  	}
+  	table label
+  	{	
+  		font-size: 24px;
+  		margin-left: 50px;
+  	}
+  	table input
+  	{
+  		width: 480px;
+  		height: 46px;
+  		margin-left: 50px;
+  		margin-top: 0px;
+  		border-radius: 5px;
+
+  	}
+  	td
+  	{
+  		margin-left: 30px;
+  		width: 100%
+  	}
+  	h1
+  	{
+  		font-size: 40px;
+  		font-family: algerian;
+  		font-style: bold italic;
+  		margin-top: 50px;
+  		color: green;
+  	}
+  	span
+  	{
+  		color: red;
+  		margin-left: 14px;
+  	}
+
+  </style>
+</head>
+</head>
+<body >
+	<div class="container bg-dark">
+	<header class="nav nav-hover nav-outline  ">
+		<div class="col-lg-2">
+			<img src="product.jpg" class="img-rounded" width="100%" height="60px">
+		</div>
+		<div class="col-lg-10">
+		<button class="nav-item btn btn-primary btn-lg"> Home</button>
+		<button class="nav-item btn btn-primary btn-lg"> Add Product</button>
+		<button class="nav-item btn btn-primary btn-lg">Update Product </button>
+		<button class="nav-item btn btn-primary btn-lg"> Delete Product</button>
+		<input class="nav-item btn btn-primary  btn-lg" placeholder="Search product ">
+		</div>
+		
+	</header>
+	<div class="col-lg-12">
+		<center><h1>Fill Product Details</h1></center>
+		<table cellpadding="12px" cellspacing="12px">
+			<tr>
+				<td><label>Product Id</label><span id="pidmsg"></span></td>
+
+			</tr>
+			<tr>
+				<td><input type="text" name="pid" id="pid" placeholder="Product Id" onblur="idValidate()"></td>
+			</tr>
+			<tr>
+				<td><label>Product Name</label><span id="pnamemsg"></span></td>
+
+			</tr>
+			<tr>
+				<td><input type="text" name="pname" id="proName" placeholder="Product Name" onblur="nameValidate()" ></td>
+			</tr>
+			<tr>
+				<td><label>Description</label></td>
+
+			</tr>
+			<tr>
+				<td><input type="text" name="pd" id="pd" placeholder="Product Description"></td>
+			</tr>
+			<tr>
+				<td><label>Manufacturer</label></td>
+
+			</tr>
+			<tr>
+				<td><input type="text" name="pm" id="pm" placeholder="Product Manufacturer"></td>
+			</tr>
+			<tr>
+				<td><label>Price</label><span id="pricemsg"></span></td>
+
+			</tr>
+			<tr>
+				<td><input type="text" name="price" id="price" placeholder="Price" onblur="priceValidate()"></td>
+			</tr>
+			<tr>
+				<td><label>Discount</label></td>
+
+			</tr>
+			<tr>
+				<td><input type="text" name="dis" id="dis" placeholder="Discount"></td>
+			</tr>
+
+			<tr>
+				<td><button type="button" class="btn btn-block btn-success" onclick="Validate()">Add Product</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" class=" btn btn-block btn-danger">Reset</button></td>
+			</tr>
+		</table>
+		
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function idValidate() {
+	var pid=document.getElementById('pid').value;
+	var testPatern=new RegExp(/^[a-zA-z]{2}[0-9]{4}$/);
+	if (testPatern.test(pid)==false) 
+	{
+		document.getElementById('pidmsg').innerHTML="! Please Enter Valid ID"
+	}
+	else if (pid=="") 
+	{
+		document.getElementById('pidmsg').innerHTML="! Please Enter ID"
+	}
+	else
+	{
+		document.getElementById('pidmsg').innerHTML=""
+	}
+}
+function nameValidate() {
+	
+	var name=document.getElementById('proName').value;
+	if(name=="") 
+	{
+		
+		document.getElementById('pnamemsg').innerHTML="! Please Enter Product Name";
+	}
+	else
+	{
+		document.getElementById('pnamemsg').innerHTML="";
+	}
+}
+function priceValidate() {
+
+	var price=document.getElementById('price').value;
+
+	var pricePatern=new RegExp(/^[0-9]{2}$/);
+	if (pricePatern.test(price)==false) 
+	{
+
+	document.getElementById('pricemsg').innerHTML="! Price Must be Number";
+
+	}
+	else if (price=="") 
+	{
+		document.getElementById('pricemsg').innerHTML="! Price Required";
+
+	}
+	else{
+	document.getElementById('pricemsg').innerHTML="";
+	}
+}
