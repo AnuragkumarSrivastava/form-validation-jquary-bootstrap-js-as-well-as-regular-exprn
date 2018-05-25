@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>array of jason object to print the data in table format</title>
+<script>
+function printJasonData() {
+var student=[ {sid:101,sname:'madhan'},{sid:102,sname:'vineeth'},{sid:103,sname:'sheshank'},{sid:104,sname:'rajnikanth'}];
+var t1="<tr><th>SID</th><th>SNAME</th></tr>";
+{
+for (var i = 0; i < student.length; i++) {
+t1 =t1+"<tr><td>"+student[i].sid+"</td>";
+t1 =t1+"<td>"+student[i].sname+"</td></tr>";
+}
+document.getElementById('id1').innerHTML=t1;
+}
+}
+</script>
+</head>
+<body onload="printJasonData()">
+<table id="id1" border="1" align="center"></table>
+</body>
+</html>
