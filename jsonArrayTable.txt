@@ -20,3 +20,25 @@ document.getElementById('id1').innerHTML=t1;
 <table id="id1" border="1" align="center"></table>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
