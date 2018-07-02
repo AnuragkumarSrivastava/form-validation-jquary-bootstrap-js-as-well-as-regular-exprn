@@ -1,0 +1,151 @@
+first create one folder
+first in visual v.basual basic create one file app.js
+in that we copy these below codes
+
+then npm install
+npm install bluebird
+pg-promise
+body-parser
+express
+then run with node app.js
+
+
+=====================================================================
+inside pgsql create these things
+
+
+
+
+
+create table std(sid int,sname varchar(20),sdept varchar(20))
+
+create or replace function insert_std (sid int,sname varchar(20),sdept varchar(20))
+ returns void as
+ $body$ begin insert into std values (sid,sname,sdept);
+ end $body$ 
+ language plpgsql volatile
+
+select insert_std(102,'raj','ece')
+
+select * from std
+
+---------------------------------------------------------
+
+create or replace function selectstd()
+returns table(sid int,sname varchar,sdept varchar)
+as 
+$body$ begin return query  
+select * from std;
+end $body$ language plpgsql stable
+
+select selectstd()
+
+-------------------------------------------------------------
+
+create or replace function select_std_id(id int)
+returns table(sid int,sname varchar,sdept varchar)
+as 
+$body$ begin return query  
+select * from std where std.sid=id;
+end $body$ language plpgsql stable
+ 
+ select select_std_id(101);
+
+-------------------------------------------------------
+
+create or replace function update_std(sid int,sname varchar,sdept varchar)
+returns void as $body$ begin update std set sname=$2,sdept=$3 where std.sid=$1;
+end;
+$body$
+language plpgsql volatile ;
+
+select update_std(101,'raj','it')
+
+------------------------------------------------------------
+
+create or replace function delete_std(id int)
+returns void as $$ begin delete from std where std.sid=id;
+end;
+ $$ language plpgsql volatile
+select delete_std(102)
+
+
+=====================================================================
+
+
+copy these codes inside the app.js file
+
+
+
+
+
+var promise = require('bluebird');
+var bodyParser = require('body-parser')
+var options = { promiseLib: promise }
+var pgp = require('pg-promise')(options);
+var express = require('express');
+var app = new express();
+var fs = require('fs');
+var path = require('path');
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
+var cs = 'postgres://postgres:root@localhost:5432/emp';
+var db = pgp(cs);
+
+
+
+app.get('/displayall', (req, res, next) => {
+
+    db.any("select selectstd()").then(function(data) {
+        res.send(data);
+    })
+})
+
+app.get('/display/:id', (req, res, next) => {
+    var i = req.params.id;
+    console.log(i);
+    db.any('select select_std_id($1)', i).then(function(data) {
+        res.send(data);
+    })
+})
+
+app.post('/insert', (req, res, next) => {
+    var n = req.body.sid;
+    var p = req.body.sname;
+    var e = req.body.sdept;
+
+    db.none('select insert_std($1,$2,$3)', [n, p, e]).then(function() {
+        console.log('Record Inserted ...')
+        res.status(200).send({ message: "Inserted Success.." })
+    })
+})
+
+app.delete('/delete/:id', (req, res, next) => {
+    var i = parseInt(req.params.id);
+    db.any('select delete_std($1)', i).then(function(data) {
+        res.status(200).send({ message: "Deleted Success.." })
+    })
+})
+
+app.put('/post/:sid', (req, res, next) => {
+    var i = req.params.sid;
+    var u = req.body.sname;
+    var p = req.body.sdept;
+
+
+    db.none('select update_std($1,$2,$3)', [i, u, p]).then(function() {
+        console.log('Record Updated Success ...')
+        res.status(200).send({ message: "Updated Succes.." })
+    })
+})
+
+app.listen(4555, (err) => {
+    if (err)
+        console.log('Server Cant Start ...Erorr....');
+    else
+        console.log('Server Started at : http://localhost:4555')
+})
